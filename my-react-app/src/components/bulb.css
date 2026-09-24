@@ -1,0 +1,14 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#bulb {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}

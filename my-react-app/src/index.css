@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* 바깥 상자: 버튼 하나 높이만큼만 보여주고 나머지는 숨김 */
+.test-rotate {
+  display: inline-block;
+  height: 3rem; /* 버튼 높이에 맞게 조절 */
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* 안쪽 상자: 버튼들을 세로로 정렬하고 애니메이션 적용 */
+.test-rotate > div {
+  display: flex;
+  flex-direction: column;
+  animation: rotateButtons 6s infinite ease-in-out;
+}
+
+/* 각 버튼의 높이 고정 */
+.test-rotate button {
+  height: 3rem;
+}
+
+/* 위아래 이동 애니메이션 */
+@keyframes rotateButtons {
+  0%,
+  25% {
+    transform: translateY(0); /* 1번 버튼 */
+  }
+  33%,
+  58% {
+    transform: translateY(-3rem); /* 2번 버튼 */
+  }
+  66%,
+  91% {
+    transform: translateY(-6rem); /* 3번 버튼 */
+  }
+  100% {
+    transform: translateY(0); /* 다시 1번으로 리셋 */
+  }
+}
