@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  color: white;
+}
+
+body {
+  padding: 10px;
+}
+
+h1 {
+  font-size: 40px;
+}

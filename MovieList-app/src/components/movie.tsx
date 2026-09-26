@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import "./movie.css";
+
+const API_KEY = "0efd598a1a2cf9d6c3d50e874f809206";
+const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
 interface MovieItem {
   id: number;
@@ -13,27 +17,24 @@ const Movie = () => {
   useEffect(() => {
     const getMovieData = async () => {
       try {
-        const res = await fetch("https://jsonfakery.com/movies/paginated");
+        const res = await fetch(url);
         const movieData = await res.json();
-        setMovie(movieData.data);
+        setMovie(movieData.results);
         console.log(movieData);
       } catch (error) {
         console.log(error);
       }
     };
-
     getMovieData();
   }, []);
 
-  if (movie.length === 0) return <div>로딩 중...</div>;
-
   return (
     <div className="flex flex-col items-center">
-      <h1>Movie List</h1>
+      <h1>현재 상영중인 영화</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {movie.map((movie) => (
           <div key={movie.id} className="w-full">
-            <img src={movie.poster_path} alt={movie.original_title} />
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
             <h3>{movie.original_title}</h3>
             <p>평점: {movie.vote_average}</p>
             <p>개봉일: {movie.release_date}</p>
