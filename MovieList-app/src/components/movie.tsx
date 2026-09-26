@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./movie.css";
 
-const API_KEY = "0efd598a1a2cf9d6c3d50e874f809206";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
 interface MovieItem {
