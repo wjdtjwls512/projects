@@ -2,6 +2,7 @@ import "./App.css";
 import Movie from "./components/movie";
 import MovieInfo from "./components/MovieInfo";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFoundPage from "./components/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -9,9 +10,13 @@ const router = createBrowserRouter([
     element: <Movie />,
   },
   {
-    path: "/info",
+    path: "/movie/:id",
     element: <MovieInfo />,
   },
+  {
+    path: '*',
+    element: <NotFoundPage />
+  }
 ]);
 
 const App = () => {

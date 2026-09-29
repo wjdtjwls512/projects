@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./movie.css";
+import "./Movie.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&region=KR`;
@@ -14,6 +14,9 @@ interface MovieItem {
 }
 
 const Movie = () => {
+  console.log(
+    `https://api.themoviedb.org/3/movie/1423191?api_key=${API_KEY}&language=ko-KR`,
+  );
   const nav = useNavigate();
 
   const [movie, setMovie] = useState<MovieItem[]>([]);
@@ -52,7 +55,7 @@ const Movie = () => {
                   : `https://placehold.co/500x750/222/fff?text=No+Poster`
               }
               alt={movie.title}
-              onClick={() => nav("/info")}
+              onClick={() => nav(`/movie/${movie.id}`)}
             />
             <h3>{movie.title}</h3>
             <p>평점: {movie.vote_average}</p>
