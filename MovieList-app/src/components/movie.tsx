@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Menu from "./Menu";
 import "./Movie.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -34,7 +35,7 @@ const Movie = () => {
     getMovieData();
   }, []);
 
-  if (movie === null) {
+  if (!movie) {
     return (
       <div>
         <p>로딩중...</p>
@@ -43,27 +44,29 @@ const Movie = () => {
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <h1>현재 상영중인 영화</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {movie.map((movie) => (
-          <div key={movie.id} className="w-full">
-            <img
-              src={
-                movie.poster_path
-                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                  : `https://placehold.co/500x750/222/fff?text=No+Poster`
-              }
-              alt={movie.title}
-              onClick={() => nav(`/movie/${movie.id}`)}
-            />
-            <h3>{movie.title}</h3>
-            <p>평점: {movie.vote_average}</p>
-            <p>개봉일: {movie.release_date}</p>
-          </div>
-        ))}
+    <>
+      <Menu />
+      <div className="flex flex-col items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+          {movie.map((movie) => (
+            <div key={movie.id} className="w-full">
+              <img
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                    : `https://placehold.co/500x750/222/fff?text=No+Poster`
+                }
+                alt={movie.title}
+                onClick={() => nav(`/movie/${movie.id}`)}
+              />
+              <h3>{movie.title}</h3>
+              <p>평점: {movie.vote_average} / 10</p>
+              <p>개봉일: {movie.release_date}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
