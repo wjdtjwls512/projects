@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
-import "./Movie.css";
+import "../components/Movie.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&region=KR`;
@@ -58,6 +58,7 @@ const Movie = () => {
           {movie.map((movie) => (
             <div key={movie.id} className="w-full">
               <img
+                className="img"
                 src={
                   movie.poster_path
                     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`

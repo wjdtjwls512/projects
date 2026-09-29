@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Menu from "../components/Menu";
-import "./MovieInfo.css";
+import "../components/MovieInfo.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -39,7 +39,7 @@ const MovieInfo = () => {
   return (
     <>
       <Menu />
-      <div>
+      <div className="Info">
         <h1>영화정보</h1>
         <img
           src={
