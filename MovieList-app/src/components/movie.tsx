@@ -15,27 +15,34 @@ interface MovieItem {
 }
 
 const Movie = () => {
-  console.log(
-    `https://api.themoviedb.org/3/movie/1423191?api_key=${API_KEY}&language=ko-KR`,
-  );
   const nav = useNavigate();
 
-  const [movie, setMovie] = useState<MovieItem[]>([]);
+  const [movie, setMovie] = useState<MovieItem[]>(() => {
+    const savedData = localStorage.getItem("movies");
+    return savedData ? JSON.parse(savedData) : [];
+  });
   useEffect(() => {
-    const getMovieData = async () => {
-      try {
-        const res = await fetch(url);
-        const movieData = await res.json();
-        setMovie(movieData.results);
-        console.log(movieData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getMovieData();
+    const savedData = localStorage.getItem("movies");
+
+    if (savedData) {
+      return;
+    } else {
+      const getMovieData = async () => {
+        try {
+          const res = await fetch(url);
+          const movieData = await res.json();
+          const results = movieData.results;
+          setMovie(results);
+          localStorage.setItem("movies", JSON.stringify(results));
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getMovieData();
+    }
   }, []);
 
-  if (!movie) {
+  if (movie.length === 0) {
     return (
       <div>
         <p>로딩중...</p>

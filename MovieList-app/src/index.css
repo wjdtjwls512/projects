@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: 'pretendard';
+    src: url(../fonts/Pretendard-Bold.woff2);
+}
+
+@font-face {
+    font-family: 'pretendard';
+    src: url(../fonts/Pretendard-Regular.woff2);
+}
