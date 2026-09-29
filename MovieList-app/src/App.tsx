@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Movie from "./components/movie";
-import MovieInfo from "./components/MovieInfo";
-import Heart from "./components/Heart";
-import MyPage from "./components/MyPage";
-import NotFoundPage from "./components/NotFoundPage";
+import Movie from "./pages/Movie";
+import MovieInfo from "./pages/MovieInfo";
+import Heart from "./pages/Heart";
+import MyPage from "./pages/MyPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
     element: <Heart />,
   },
   {
-    path: '/mypage',
-    element: <MyPage />
+    path: "/mypage",
+    element: <MyPage />,
   },
   {
     path: "*",

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Menu from "./Menu";
+import Menu from "../components/Menu";
 import "./Movie.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
