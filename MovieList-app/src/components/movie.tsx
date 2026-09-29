@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./movie.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -13,6 +14,8 @@ interface MovieItem {
 }
 
 const Movie = () => {
+  const nav = useNavigate();
+
   const [movie, setMovie] = useState<MovieItem[]>([]);
   useEffect(() => {
     const getMovieData = async () => {
@@ -28,6 +31,14 @@ const Movie = () => {
     getMovieData();
   }, []);
 
+  if (movie === null) {
+    return (
+      <div>
+        <p>로딩중...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center">
       <h1>현재 상영중인 영화</h1>
@@ -41,6 +52,7 @@ const Movie = () => {
                   : `https://placehold.co/500x750/222/fff?text=No+Poster`
               }
               alt={movie.title}
+              onClick={() => nav("/info")}
             />
             <h3>{movie.title}</h3>
             <p>평점: {movie.vote_average}</p>
