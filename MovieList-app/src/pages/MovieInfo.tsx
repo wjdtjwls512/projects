@@ -41,18 +41,22 @@ const MovieInfo = () => {
       <Menu />
       <div className="Info">
         <h1>영화정보</h1>
-        <img
-          src={
-            movieInfo?.poster_path
-              ? `https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`
-              : `https://placehold.co/500x750/222/fff?text=No+Poster`
-          }
-          alt=""
-        />
-        <p>{movieInfo.title}</p>
-        <p>평점: {movieInfo.vote_average} / 10</p>
-        <p>개봉일: {movieInfo.release_date}</p>
-        <p>{movieInfo.overview}</p>
+        <div className="info-section">
+          <img
+            src={
+              movieInfo?.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`
+                : `https://placehold.co/500x750/222/fff?text=No+Poster`
+            }
+            alt=""
+          />
+          <div>
+            <p>{movieInfo.title}</p>
+            <p>평점: {movieInfo.vote_average} / 10</p>
+            <p>개봉일: {movieInfo.release_date}</p>
+            <p>{movieInfo.overview}</p>
+          </div>
+        </div>
         <button onClick={() => nav(-1)}>뒤로 가기</button>
       </div>
     </>

@@ -56,7 +56,11 @@ const Movie = () => {
       <div className="flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
           {movie.map((movie) => (
-            <div key={movie.id} className="w-full">
+            <div
+              key={movie.id}
+              onClick={() => nav(`/movie/${movie.id}`)}
+              className="w-full cursor-pointer"
+            >
               <img
                 className="img"
                 src={
@@ -65,7 +69,6 @@ const Movie = () => {
                     : `https://placehold.co/500x750/222/fff?text=No+Poster`
                 }
                 alt={movie.title}
-                onClick={() => nav(`/movie/${movie.id}`)}
               />
               <h3>{movie.title}</h3>
               <p>평점: {movie.vote_average} / 10</p>

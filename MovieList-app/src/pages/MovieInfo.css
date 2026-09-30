@@ -1,0 +1,38 @@
+button {
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+}
+
+p {
+  max-width: 50%;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 300px;
+  height: 450px;
+}
+
+.info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info-section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
