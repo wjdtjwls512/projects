@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
-import "../components/Movie.css";
+import "./Movie.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR&region=KR`;

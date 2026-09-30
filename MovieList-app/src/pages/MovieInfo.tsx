@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Menu from "../components/Menu";
-import "../components/MovieInfo.css";
+import "./MovieInfo.css";
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
