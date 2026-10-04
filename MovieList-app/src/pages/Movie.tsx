@@ -9,7 +9,7 @@ const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&l
 interface MovieItem {
   id: number;
   title: string;
-  poster_path?: string;
+  poster_path: string;
   vote_average: number;
   release_date: string;
 }

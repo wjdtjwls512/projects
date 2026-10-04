@@ -40,7 +40,6 @@ const MovieInfo = () => {
     <>
       <Menu />
       <div className="Info">
-        <h1>영화정보</h1>
         <div className="info-section">
           <img
             src={
