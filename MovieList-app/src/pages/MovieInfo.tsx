@@ -54,9 +54,9 @@ const MovieInfo = () => {
             <p>평점: {movieInfo.vote_average} / 10</p>
             <p>개봉일: {movieInfo.release_date}</p>
             <p>{movieInfo.overview}</p>
+        <button onClick={() => nav(-1)}>뒤로 가기</button>
           </div>
         </div>
-        <button onClick={() => nav(-1)}>뒤로 가기</button>
       </div>
     </>
   );
