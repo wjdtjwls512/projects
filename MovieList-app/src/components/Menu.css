@@ -1,21 +1,41 @@
 .Menu {
   display: flex;
-  justify-content: center;
-  width: 100vw;
-  border-bottom: 1px solid black;
-  margin-bottom: 50px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 82px;
+  padding: 0 5vw;
+  border-bottom: 1px solid #2e2d29;
+  background: #11110f;
+}
+.brand {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #f5f2ea;
+  cursor: pointer;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.09em;
+}
+.brand span {
+  color: #e6b84d;
 }
 
 .menu-list {
   display: flex;
-  justify-content: space-between;
-  width: 50%;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .menu-list li {
   cursor: pointer;
-  padding: 10px;
-  width: 100px;
+  padding: 9px 13px;
+  width: auto;
+  color: #a7a49c;
+  font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +43,7 @@
 }
 
 .menu-list li:hover {
-  background-color: rgb(236, 236, 236);
+  color: #f5f2ea;
 }
 
 .search {
@@ -33,7 +53,45 @@
 .sub-list {
   display: none;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
+  min-width: 150px;
+  padding: 7px;
+  border: 1px solid #383630;
+  background: #1a1916;
+}
+.sub-list li {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 8px;
+  color: #aaa79f;
+  font-size: 12px;
+}
+.profile-button {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #757168;
+  border-radius: 50%;
+  background: transparent;
+  color: #f5f2ea;
+  cursor: pointer;
+  line-height: 1;
+}
+@media (max-width: 670px) {
+  .Menu {
+    height: 66px;
+    padding: 0 20px;
+  }
+  .menu-list li:first-child {
+    display: none;
+  }
+  .menu-list {
+    gap: 0;
+  }
+  .menu-list li {
+    padding: 8px;
+    font-size: 12px;
+  }
 }
 
 .menu-list li:nth-child(1):hover .sub-list {

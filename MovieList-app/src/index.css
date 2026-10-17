@@ -5,6 +5,17 @@
     src: url(../fonts/Pretendard-Bold.woff2);
 }
 
+:root {
+  font-family: "pretendard", system-ui, sans-serif;
+  color: #f5f2ea;
+  background: #11110f;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background: #11110f; }
+button { font: inherit; }
+
 @font-face {
     font-family: 'pretendard';
     src: url(../fonts/Pretendard-Regular.woff2);
